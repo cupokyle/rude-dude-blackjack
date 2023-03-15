@@ -242,3 +242,8 @@ button:hover {
   }
 }
 
+.card.hidden {
+  background-image: url('../public/cardback.png');
+  background-size: cover;
+}
+
