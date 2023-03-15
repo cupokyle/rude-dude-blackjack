@@ -1,0 +1,58 @@
+@keyframes rude-dude-entrance {
+    0% {
+      transform: translateY(100%) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-20%) scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes speech-bubble-entrance {
+    0% {
+      transform: translateY(100%) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-20%) scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+.rude-dude {
+    position: fixed;
+    bottom: 40px; /* Increase the bottom spacing */
+    right: 100px; /* Increase the right spacing */
+    width: 200px;
+    height: 200px;
+    background-image: url('../../public/dude.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 10;
+    animation: rude-dude-entrance 1s ease-out both;
+  }
+  
+  .speech-bubble {
+    position: absolute;
+    top: -70px; /* Increase the top spacing */
+    left: 50px; /* Increase the left spacing */
+    min-width: 180px;
+    max-width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    text-align: center;
+    animation: speech-bubble-entrance 1s ease-out 0.2s both;
+  }
+  
