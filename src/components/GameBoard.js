@@ -119,9 +119,10 @@ const GameBoard = () => {
         }, 2000); // Wait for the animation to complete before setting the game status to 'win'
       }
     }, animationDelay);
+    const playerPoints = calculatePoints(newPlayerHand); // Add this line to calculate player points
 
-    // Only display rude messages when the game is still ongoing
-    if (Math.random() < 0.39 && !gameStatus) {
+    // Only display rude messages when the game is still ongoing and the player didn't win
+    if (Math.random() < 0.39 && !gameStatus && playerPoints !== 21) {
       setRudeMessage(getRandomRudeMessage('hit'));
 
       setTimeout(() => {
@@ -130,8 +131,16 @@ const GameBoard = () => {
     }
   }
 
-
-
+  function handleRudeMessage(newGameStatus) {
+    // Only display rude messages when the game is still ongoing and the player didn't win
+    if (Math.random() < 0.39 && !gameStatus && newGameStatus !== 'win') {
+      setRudeMessage(getRandomRudeMessage('stand'));
+  
+      setTimeout(() => {
+        setRudeMessage('');
+      }, 4000);
+    }
+  }
 
   function handleStand() {
     if (gameStatus) return;
@@ -174,22 +183,12 @@ const GameBoard = () => {
       } else {
         newGameStatus = 'lose';
       }
-
+  
       setGameStatus(newGameStatus);
+      handleRudeMessage(newGameStatus); // Add this line to handle rude messages
     }, animationDelay);
-
-    if (Math.random() < 0.39 && !gameStatus) {
-      setRudeMessage(getRandomRudeMessage('stand'));
-
-      setTimeout(() => {
-        setRudeMessage('');
-      }, 4000);
-    }
   }
-
-
-
-
+  
   return (
     <div className="game-board">
       <div className="dealer-section">
