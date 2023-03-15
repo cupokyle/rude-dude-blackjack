@@ -68,6 +68,7 @@ button:hover {
   background-color: #45a049;
 }
 
+
 .game-result {
   font-size: 2rem;
   font-weight: bold;
@@ -86,3 +87,158 @@ button:hover {
 .draw {
   color: #ff9800;
 }
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border: 5px solid #d4af37; /* Casino-like gold border */
+  border-radius: 10px;
+  background-color: rgba(18, 29, 43, 0.8); /* Casino-like dark blue with transparency */
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid #d4af37; /* Casino-like gold border */
+  border-radius: 5px;
+  background-color: #0e1726; /* Casino-like dark blue background */
+  color: #d4af37; /* Casino-like gold text color */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d4af37; /* Casino-like gold background */
+  color: #0e1726; /* Casino-like dark blue text color */
+}
+
+.game-result {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Casino-like card texture */
+  opacity: 0.1;
+}
+
+.card.red {
+  color: #c41f3a; /* Casino-like red color */
+}
+
+/* ...existing styles... */
+
+@media (max-width: 768px) {
+  .game-board {
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 90%;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+}
+
+/* ...existing styles... */
+
+@media (max-width: 768px) {
+  .card {
+    width: 80px;
+    height: 120px;
+    margin: 0 5px;
+  }
+}
+
+/* ...existing styles... */
+
+@media (max-width: 400px) {
+  .card {
+    width: 48px; /* Further reduce the width of the cards */
+    height: 72px; /* Further reduce the height of the cards */
+    margin: 0 2px; /* Further reduce the margin between the cards */
+    font-size: 1rem; /* Further reduce the font size */
+  }
+}
+
+/* ...existing styles... */
+
+@media (max-width: 400px) {
+  .game-board {
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 95%;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+}
+

@@ -34,7 +34,7 @@
     right: 100px; /* Increase the right spacing */
     width: 200px;
     height: 200px;
-    background-image: url('../../public/dude.png');
+    background-image: url('../../public/dude3.png');
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 10;
@@ -50,6 +50,7 @@
     padding: 10px;
     border-radius: 5px;
     background-color: white;
+    color: black;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     font-size: 1rem;
     text-align: center;
