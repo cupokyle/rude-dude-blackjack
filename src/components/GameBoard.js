@@ -28,6 +28,14 @@ const GameBoard = () => {
     }
   }, [playerHand]);
 
+  useEffect(() => {
+    if (gameStatus !== '') {
+      const newDealerHand = [...dealerHand];
+      newDealerHand[1].hidden = false;
+      setDealerHand(newDealerHand);
+    }
+  }, [gameStatus]);
+
 
   function startNewGame() {
     const newDeck = createDeck();
@@ -99,10 +107,10 @@ const GameBoard = () => {
     const newPlayerHand = [...playerHand, newDeck.pop()];
     setDeck(newDeck);
     setPlayerHand(newPlayerHand);
-
+  
     const maxCardIndex = Math.max(newPlayerHand.length, dealerHand.length);
     const animationDelay = (maxCardIndex + 1) * 250; // Convert delay to milliseconds
-
+  
     setTimeout(() => {
       const playerPoints = calculatePoints(newPlayerHand);
       if (playerPoints > 21) {
@@ -119,18 +127,17 @@ const GameBoard = () => {
         }, 2000); // Wait for the animation to complete before setting the game status to 'win'
       }
     }, animationDelay);
-    const playerPoints = calculatePoints(newPlayerHand); // Add this line to calculate player points
-
+  
     // Only display rude messages when the game is still ongoing and the player didn't win
-    if (Math.random() < 0.39 && !gameStatus && playerPoints !== 21) {
+    if (Math.random() < 0.39 && !gameStatus && calculatePoints(newPlayerHand) !== 21) {
       setRudeMessage(getRandomRudeMessage('hit'));
-
+  
       setTimeout(() => {
         setRudeMessage('');
       }, 4000);
     }
   }
-
+  
   function handleRudeMessage(newGameStatus) {
     // Only display rude messages when the game is still ongoing and the player didn't win
     if (Math.random() < 0.39 && !gameStatus && newGameStatus !== 'win') {
